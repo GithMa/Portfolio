@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectTag from "./ProjectTag";
 
 const projectData = [
   {
@@ -25,34 +27,52 @@ const projectData = [
     title: "Redacted prosjekt",
     description: "Redacted prosjekt beskrivelse",
     image: "/images/projects/redacted.jpg",
-    tag: ["All", "Web"],
+    tag: ["All", "Mobile"],
     gitUrl: "/",
     previewUrl: "/",
   },
 ];
 
 const ProjectsSection = () => {
+  const [tag, setTag] = useState("All");
+
+  const handleTagChange = (newTag) => {
+    setTag(newTag);
+  };
+
+  const filteredProjects = projectData.filter((project) =>
+    project.tag.includes(tag)
+  );
+
   return (
     <>
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
         Mine Prosjekter
       </h2>
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6 ">
-        <button className="rounded-full border-2 border-[#597081] px-5 py-3 text-xl cursor-pointer">
-          Alle
-        </button>
-        <button className="rounded-full border-2 border-slate-800 hover:border-white px-5 py-3 text-xl cursor-pointer">
-          Web
-        </button>
+        <ProjectTag
+          onClick={handleTagChange}
+          name="All"
+          isSelected={tag === "All"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Web"
+          isSelected={tag === "Web"}
+        />
+        <ProjectTag
+          onClick={handleTagChange}
+          name="Mobile"
+          isSelected={tag === "Mobile"}
+        />
       </div>
       <div className="grid md:grid-cols-3 gap-8 md-gap-12">
-        {projectData.map((project) => (
+        {filteredProjects.map((project) => (
           <ProjectCard
             key={project.id}
             title={project.title}
             description={project.description}
             imgUrl={project.image}
-            /*tags={project.tag}*/
             gitUrl={project.gitUrl}
             previewUrl={project.previewUrl}
           />

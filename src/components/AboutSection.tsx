@@ -43,7 +43,7 @@ const TAB_DATA = [
         <li>Echo Consulting</li>
       </ul>
     ),
-  },  
+  },
 ];
 
 const AboutSection = () => {
