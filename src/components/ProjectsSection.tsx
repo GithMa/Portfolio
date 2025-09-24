@@ -52,7 +52,7 @@ const ProjectsSection = () => {
             title={project.title}
             description={project.description}
             imgUrl={project.image}
-            tags={project.tag}
+            /*tags={project.tag}*/
             gitUrl={project.gitUrl}
             previewUrl={project.previewUrl}
           />

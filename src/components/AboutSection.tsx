@@ -2,7 +2,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
-import { title } from "process";
+/*import { title } from "process";*/
 
 const TAB_DATA = [
   {
@@ -43,14 +43,14 @@ const TAB_DATA = [
         <li>Echo Consulting</li>
       </ul>
     ),
-  },
+  },  
 ];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("ferdigheter");
-  const [isPending, startTransition] = useTransition();
+  const [, /*isPending*/ startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
+  const handleTabChange = (id: string) => {
     startTransition(() => {
       setTab(id);
     });
@@ -60,7 +60,7 @@ const AboutSection = () => {
     <section className="text-white">
       <div className="md:grid md:grid-cols-2 gap-8  items-center py-8 px-4 xl:gap-16 sm:py-16 xl:py-16">
         <Image
-          /*src="/images/ApexStats.tiff" */
+          src="/images/IMG_6064.JPG"
           alt="Lettis bilde"
           width={500}
           height={500}
@@ -101,7 +101,7 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab)?.content}
           </div>
         </div>
       </div>
