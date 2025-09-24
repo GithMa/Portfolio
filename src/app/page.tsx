@@ -1,9 +1,17 @@
+import HeroSection from "../components/HeroSection";
+import Navbar from "../components/Navbar";
+import AboutSection from "../components/AboutSection";
+import ProjectsSection from "../components/ProjectsSection";
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-2xl text-red-600">Hei</h1>
-      <p>Jeg heter Githan</p>
-      <a href="/prosjekter">Prosjekter</a>
-    </div>
+    <main className="flex min-h-screen flex-col bg-[#011627]">
+      <Navbar />
+      <div className="container  mt-24 mx-auto px-12 py-4">
+        <HeroSection />
+        <AboutSection />
+        <ProjectsSection />
+      </div>
+    </main>
   );
 }
