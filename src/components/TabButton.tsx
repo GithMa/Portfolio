@@ -1,6 +1,12 @@
 import React from "react";
 
-const TabButton = ({ active, selectTab, children }) => {
+type TabButtonProps = {
+  active: boolean;
+  selectTab: () => void;
+  children: React.ReactNode;
+};
+
+const TabButton = ({ active, selectTab, children }: TabButtonProps) => {
   const buttonClasses = active
     ? "text-white border-b-3 border-[#597081]"
     : "text-[#adb7be]";
